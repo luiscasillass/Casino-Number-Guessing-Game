@@ -13,9 +13,138 @@ Technologies Required: C++ programming language, Object Oriented Programming(OOP
  Data Structures, Input/Output Streams, Memory Management, Standard Template Library(STL).*/
 
 #include <iostream>
+#include <string>
+#include <ctime>
+#include <cstdlib>
 
-int main() {   
     
+int main(){
+    float userMoney = 0; 
+    std::cout << "----------------------------------------------------------------------------------------------------------" << std::endl;
+    std::cout << "Hi there! this is Canciller's Casino, the best Casino in town!"<<std::endl;
+    std::cout << "----------------------------------------------------------------------------------------------------------" << std::endl;
+         std::cout << "Deposit the amount of money to play (the minimum is $10): $";
+         std::cin >> userMoney;
+    if(userMoney < 10){
+        std::cout << "I'm sorry, you have to deposit more than $10.00";
+        return 0;
+    }
+    std::cout <<"$"<< userMoney << " Are great!" << std::endl;
+         std::cout << "Ok now, game rules are simple. Press 101 to exit. You will choose between 3 different levels:"<< std::endl;
+         std::cout << "If you don't guess the number in the same amount of money you bet, you're out."<< std::endl;
+            std::cout << "-> Level 1: Guess the number between 0 to 10. You will lose $2.00 for each wrong number. "<<std::endl;
+                std::cout << "-> Level 2: Guess the number between 0 to 50. You will lose $5.00 for each wrong number you choose."<<std::endl;
+                    std::cout << "-> Level 3: Guess the number between 0 to 100. You will lose $10.00 for each wrong number you choose."<<std::endl;
+    std::cout << "----------------------------------------------------------------------------------------------------------" << std::endl;
+    int level = 0;
+    while (true){
+        std::cout << "What level do you want to play? ";
+        std::cin >> level;
+        if(level != 1 && level != 2 && level != 3){
+            std::cout << "Please write a valid level."; 
+        }else {
+            break;
+        }
+    }
+    srand(time(0));
+    int randomNum = rand() % 10; 
+    if(level == 1){
+            int userChoice;
+            int randomNum = rand() % 10; 
 
+            std::cout << "Welcome to Level 1. Please choose a number between 0 and 10: ";
+
+        while (userMoney >=2){
+            std::cin >> userChoice;
+                if(userChoice == 101){
+                        std::cout << "Thanks for playing in Canciller Casino, you win: $" << userMoney <<std::endl;
+                        std::cout << "Come back soon!!";
+                        return 0; 
+                }
+                if(userChoice == randomNum){
+                    std::cout << "Congrats!!! You already win $10.00 ";
+                    userMoney += 10;
+                    std::cout << "                                                                                                               ";
+                    std::cout << "Your account balance is: $"<< userMoney << std::endl;
+                    randomNum = rand() % 10;
+                }
+                else if(userChoice != randomNum){
+                    std::cout << "I'm sorry! That's not the number. Try again: ";
+                    userMoney -= 2;
+                    std::cout << "                                                                                                              ";
+                    std::cout << "Your account balance is: $"<< userMoney << std::endl;
+                } 
+                    
+                if(userMoney < 2){
+                    std::cout << std::endl<< "Thanks for playing in Canciller Casino, you run of money. Come back soon!! ";
+                }
+    }
+}
+    if(level == 2){
+            int userChoice;
+            int randomNum = rand() % 50; 
+
+            std::cout << "Welcome to Level 2. Please choose a number between 0 and 50: ";
+
+        while (userMoney >=5){
+            std::cin >> userChoice;
+                if(userChoice == 101){
+                        std::cout << "Thanks for playing in Canciller Casino, you win: $" << userMoney <<std::endl;
+                        std::cout << "Come back soon!!";
+                        return 0; 
+                }
+                if(userChoice == randomNum){
+                    std::cout << "Congrats!!! You already win $500.00 ";
+                    userMoney += 500;
+                    std::cout << "                                                                                                               ";
+                    std::cout << "Your account balance is: $"<< userMoney << std::endl;
+                    randomNum = rand() % 5;
+                }
+                else if(userChoice != randomNum){
+                    std::cout << "I'm sorry! That's not the number. Try again: ";
+                    userMoney -= 5;
+                    std::cout << "                                                                                                              ";
+                    std::cout << "Your account balance is: $"<< userMoney << std::endl;
+                } 
+                    
+                if(userMoney < 5){
+                    std::cout << std::endl<< "Thanks for playing in Canciller Casino, you run of money. Come back soon!! ";
+                }
+    }
+}
+
+    if(level == 3){
+            int userChoice;
+            int randomNum = rand() % 100; 
+
+            std::cout << "Welcome to Level 3. Please choose a number between 0 and 100: ";
+
+        while (userMoney >= 9){
+            std::cin >> userChoice;
+                if(userChoice == 101){
+                        std::cout << "Thanks for playing in Canciller Casino, you win: $" << userMoney <<std::endl;
+                        std::cout << "Come back soon!!";
+                        return 0; 
+                }
+                if(userChoice == randomNum){
+                    std::cout << "Congrats!!! You already win $2,500.00 ";
+                    userMoney += 2,500;
+                    std::cout << "                                                                                                               ";
+                    std::cout << "Your account balance is: $"<< userMoney << std::endl;
+                    randomNum = rand() % 100;
+                }
+                else if(userChoice != randomNum){
+                    std::cout << "I'm sorry! That's not the number. Try again: ";
+                    userMoney -= 9;
+                    std::cout << "                                                                                                               ";
+                    std::cout << "Your account balance is: $"<< userMoney << std::endl;
+                } 
+                    
+                if(userMoney < 9){
+                    std::cout << std::endl<< "Thanks for playing in Canciller Casino, you run of money. Come back soon!! ";
+                }
+    }
+}
     return 0;
 }
+  
